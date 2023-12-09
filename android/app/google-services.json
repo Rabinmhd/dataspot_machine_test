@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "324410642959",
+    "project_id": "machinetest-1e093",
+    "storage_bucket": "machinetest-1e093.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:324410642959:android:972377747bd502ca99897a",
+        "android_client_info": {
+          "package_name": "com.example.pin_login_screen_test"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAj4dvlgUFwUdiRo00zFQ_In29sB1d-ovY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

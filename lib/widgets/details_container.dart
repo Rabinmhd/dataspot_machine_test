@@ -6,6 +6,7 @@ class DetailsContainer extends StatelessWidget {
   final String email;
   final String number;
   final String location;
+  final String region;
 
   const DetailsContainer({
     super.key,
@@ -13,6 +14,7 @@ class DetailsContainer extends StatelessWidget {
     required this.name,
     required this.email,
     required this.number,
+    required this.region,
     required this.location,
   });
 
@@ -20,7 +22,6 @@ class DetailsContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     //final querry = MediaQuery.of(context).size;
     return Container(
-      // padding: const EdgeInsets.all(10),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10.0),
         border: Border.all(),
@@ -34,34 +35,43 @@ class DetailsContainer extends StatelessWidget {
                 ClipOval(
                   child: Image.network(
                     image,
-                    width: 100.0, // Adjust the width and height as needed
+                    width: 100.0,
                     height: 100.0,
-                    fit: BoxFit
-                        .cover, // Ensure the image covers the entire CircleAvatar
+                    fit: BoxFit.cover,
                   ),
                 ),
                 const SizedBox(height: 5.0),
-                Text(
-                  name,
-                  style: const TextStyle(
-                    color: Colors.black,
-                    fontSize: 20.0,
-                    fontWeight: FontWeight.bold,
+                Container(
+                  padding: const EdgeInsets.all(4),
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    color: Colors.black12,
+                    borderRadius: BorderRadius.circular(10),
                   ),
-                ),
-                Text(
-                  email,
-                  style: const TextStyle(
-                    fontSize: 10,
-                    color: Colors.black,
+                  child: Column(
+                    children: [
+                      Text(
+                        name,
+                        style: const TextStyle(
+                          color: Colors.black,
+                          fontSize: 20.0,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      Text(
+                        email,
+                        style: const TextStyle(
+                          fontSize: 10,
+                          color: Colors.black,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
                 const SizedBox(height: 10.0),
                 Text(
-                  number,
-                  style: const TextStyle(
-                    color: Colors.black,
-                  ),
+                  region + number,
+                  style: const TextStyle(color: Colors.black, fontSize: 10),
                 ),
                 const SizedBox(height: 5.0),
                 Text(
@@ -73,9 +83,16 @@ class DetailsContainer extends StatelessWidget {
               ],
             ),
           ),
-          Container(
-            height: 10,
-            color: Colors.red,
+          Expanded(
+            child: ClipRRect(
+              borderRadius: const BorderRadius.only(
+                bottomLeft: Radius.circular(10),
+                bottomRight: Radius.circular(10),
+              ),
+              child: Container(
+                color: Colors.red,
+              ),
+            ),
           )
         ],
       ),

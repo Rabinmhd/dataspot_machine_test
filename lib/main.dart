@@ -1,25 +1,30 @@
 import 'package:flutter/material.dart';
-import 'package:pin_login_screen_test/pages/home_page.dart';
-// import 'package:pin_login_screen_test/pages/login_page.dart';
-// import 'package:pin_login_screen_test/pages/register_page.dart';
+import 'package:pin_login_screen_test/pages/login_page.dart';
+import 'package:pin_login_screen_test/provider/home_page_provider.dart';
+import 'package:provider/provider.dart';
+import 'package:firebase_core/firebase_core.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
+    return ChangeNotifierProvider(
+      create: (context) => HomePageProvider(),
+      child: MaterialApp(
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+          useMaterial3: true,
+        ),
+        home: LoginPage(),
       ),
-      home: HomePage(),
     );
   }
 }
